@@ -7,7 +7,7 @@ abstract class Persons {
   getName(): void {
     console.log(`Name: ${this.name}`);
   }
-  abstract find(name: string): Persons;
+  abstract getInfo(): Persons;
 }
 
 class Employees extends Persons {
@@ -18,12 +18,13 @@ class Employees extends Persons {
     this.name = name;
     this.age = age;
   }
-  find(name: string): Persons {
-    return new Employees(name, this.age, this.code);
+  getInfo(): Persons {
+    return new Employees(this.name, this.age, this.code);
   }
 }
 let emp: Persons = new Employees('James', 10, '2');
-emp.getName(); //James
-
-let emp2: Persons = emp.find('James');
-console.log(emp2);
+console.log(emp.getInfo());
+let emp2: Persons = new Employees('Jhon', 22, '1');
+console.log(emp2.getInfo());
+let emp3: Persons = new Employees('Steve', 30, '3');
+console.log(emp3.getInfo());
