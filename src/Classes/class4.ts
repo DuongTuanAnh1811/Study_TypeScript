@@ -19,11 +19,11 @@ class Employees extends Persons {
     this.age = age;
   }
   find(name: string): Persons {
-    return new Employees('John', 22, '1');
+    return new Employees(name, this.age, this.code);
   }
 }
 let emp: Persons = new Employees('James', 10, '2');
 emp.getName(); //James
 
-let emp2: Persons = emp.find('John');
+let emp2: Persons = emp.find('James');
 console.log(emp2);
